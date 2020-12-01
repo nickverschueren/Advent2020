@@ -1,3 +1,7 @@
+from console import sc
+from console.constants import ESC
+from console.utils import wait_key
+
 def readInput(): 
     values = []
 
@@ -28,6 +32,13 @@ def part2(values):
                     print(value1, value2, value3, value1 * value2 * value3)
                     return
 
-values = readInput()
-part1(values)
-part2(values)
+with sc.fullscreen():
+    with sc.location(0, 4):
+        values = readInput()
+        part1(values)
+        part2(values)
+    
+    with sc.location(5, 8):
+        with sc.hidden_cursor():
+            print('Press ESC to exit')
+            wait_key(ESC)
