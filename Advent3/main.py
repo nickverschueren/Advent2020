@@ -13,10 +13,8 @@ def readInput():
 def countTrees(rows, dx, dy):
     x = 0
     trees = 0
-    for y in range(len(rows)):
+    for y in range(0, len(rows), dy):
         row = rows[y]
-        if (y % dy != 0):
-            continue
         if row[x] == '#':
             trees = trees + 1
         x = (x + dx) % len(row)
