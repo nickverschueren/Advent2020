@@ -12,16 +12,14 @@ def readInput():
 
 def countTrees(rows, dx, dy):
     x = 0
-    y = 0
     trees = 0
-    for row in rows:
+    for y in range(len(rows)):
+        row = rows[y]
         if (y % dy != 0):
-            y = y + 1
             continue
         if row[x] == '#':
             trees = trees + 1
         x = (x + dx) % len(row)
-        y = y + 1
     return trees
 
 def part1(rows):
@@ -33,7 +31,6 @@ def part2(rows):
     result = result * countTrees(rows, 5, 1)
     result = result * countTrees(rows, 7, 1)
     result = result * countTrees(rows, 1, 2)
-
     return result
 
 with sc.fullscreen():
