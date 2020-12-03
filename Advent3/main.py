@@ -2,8 +2,8 @@ from console import sc
 from console.constants import ESC
 from console.utils import wait_key
 
-def readInput(): 
-    inputFile = open('input.txt')
+def readInput(filename): 
+    inputFile = open(filename)
     rows = [line.rstrip('\n') for line in inputFile]
     inputFile.close()
     return rows
@@ -29,15 +29,16 @@ def part2(rows):
     result = result * countTrees(rows, 1, 2)
     return result
 
-with sc.fullscreen():
-    with sc.location(0, 4):
-        rows = readInput()
-        result = part1(rows)
-        print('Part 1 trees:', result)
-        result = part2(rows)
-        print('Part 2 product:', result)
-    
-    with sc.location(5, 8):
-        with sc.hidden_cursor():
-            print('Press ESC to exit')
-            wait_key(ESC)
+if __name__ == '__main__':
+    with sc.fullscreen():
+        with sc.location(0, 4):
+            rows = readInput('input.txt')
+            result = part1(rows)
+            print('Part 1 trees:', result)
+            result = part2(rows)
+            print('Part 2 product:', result)
+        
+        with sc.location(5, 8):
+            with sc.hidden_cursor():
+                print('Press ESC to exit')
+                wait_key(ESC)
