@@ -3,15 +3,9 @@ from console.constants import ESC
 from console.utils import wait_key
 
 def readInput(): 
-    values = []
-
     inputFile = open('input.txt')
-    lines = inputFile.readlines()
+    values = [int(line) for line in inputFile]
     inputFile.close()
-
-    for line in lines:
-        values.append(int(line))
-    
     return values
 
 def part1(values):

@@ -13,7 +13,7 @@ def readInput():
     rows = []
 
     inputFile = open('input.txt')
-    lines = inputFile.readlines()
+    lines = [line.rstrip('\n') for line in inputFile]
     inputFile.close()
 
     for line in lines:
@@ -22,7 +22,7 @@ def readInput():
         min=int(minmax[0])
         max=int(minmax[1])
         letter=columns[1][:1]
-        password=columns[2].replace('\n','')
+        password=columns[2]
         rows.append(row(min, max, letter, password))
     return rows
 
