@@ -4,10 +4,8 @@ from console.utils import wait_key
 
 def readInput(): 
     inputFile = open('input.txt')
-    rows = inputFile.readlines()
+    rows = [line.rstrip('\n') for line in inputFile]
     inputFile.close()
-    for i in range(len(rows)):
-        rows[i] = rows[i].replace('\n','')
     return rows
 
 def countTrees(rows, dx, dy):
