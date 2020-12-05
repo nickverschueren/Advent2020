@@ -16,12 +16,8 @@ def binaryCountStr(string, onSymb = '1'):
     return value
 
 def part1(tickets):
-    max = 0
-    for ticket in tickets:
-        value = binaryCountStr(ticket,'BR')
-        if (max < value):
-            max = value
-    return max
+    seats = [binaryCountStr(ticket,'BR') for ticket in tickets]
+    return max(seats)
 
 def part2(tickets):
     seats = [binaryCountStr(ticket,'BR') for ticket in tickets]
