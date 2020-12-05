@@ -42,7 +42,7 @@ class rulesPart2(rulesBase):
     def byrRule(self, record):
         if ('byr' in record):
             byr = record['byr']
-            if re.search('^((19[2-9][0-9])|(200[0-2]))$', byr):
+            if re.search(r'^((19[2-9][0-9])|(200[0-2]))$', byr):
                 return True
         return False
 
@@ -50,7 +50,7 @@ class rulesPart2(rulesBase):
     def iyrRule(self, record):
         if('iyr' in record):
             iyr = record['iyr']
-            if re.search('^20((1[0-9])|(20))$', iyr):
+            if re.search(r'^20((1[0-9])|(20))$', iyr):
                 return True
         return False
             
@@ -58,7 +58,7 @@ class rulesPart2(rulesBase):
     def eyrRule(self, record):
         if('eyr' in record):
             eyr = record['eyr']
-            if re.search('^20((2[0-9])|(30))$', eyr):
+            if re.search(r'^20((2[0-9])|(30))$', eyr):
                 return True
         return False
 
@@ -66,7 +66,7 @@ class rulesPart2(rulesBase):
     def hgtRule1(self, record):
         if('hgt' in record):
             hgt = record['hgt']
-            if re.search('^\d+((in)|(cm))$', hgt):
+            if re.search(r'^\d+((in)|(cm))$', hgt):
                 return True
         return False
 
@@ -74,7 +74,7 @@ class rulesPart2(rulesBase):
     def hgtRule2(self, record):
         if('hgt' in record):
             hgt = record['hgt']
-            if (re.search('(^1([5-8][0-9])|(9[0-3])cm$)|(^(?!\d*cm))', hgt)):
+            if (re.search(r'(^1([5-8][0-9])|(9[0-3])cm$)|(^(?!\d*cm))', hgt)):
                 return True
         return False
     
@@ -83,7 +83,7 @@ class rulesPart2(rulesBase):
     def hgtRule3(self, record):
         if('hgt' in record):
             hgt = record['hgt']
-            if (re.search('(^(59)|(6[0-9])|(7[0-6])in$)|(^(?!\d*in))', hgt)):
+            if (re.search(r'(^(59)|(6[0-9])|(7[0-6])in$)|(^(?!\d*in))', hgt)):
                 return True
         return False
 
@@ -91,7 +91,7 @@ class rulesPart2(rulesBase):
     def hclRule(self, record):
         if('hcl' in record):
             hcl = record['hcl']
-            if (re.search('^#([0-9]|[a-f]){6}$', hcl)):
+            if (re.search(r'^#([0-9]|[a-f]){6}$', hcl)):
                 return True
         return False
 
@@ -99,7 +99,7 @@ class rulesPart2(rulesBase):
     def eclRule(self, record):
         if('ecl' in record):
             ecl = record['ecl']
-            if (re.search('^((amb)|(blu)|(brn)|(gry)|(grn)|(hzl)|(oth))$', ecl)):
+            if (re.search(r'^((amb)|(blu)|(brn)|(gry)|(grn)|(hzl)|(oth))$', ecl)):
                 return True
         return False
 
@@ -107,7 +107,7 @@ class rulesPart2(rulesBase):
     def pidRule(self, record):
         if('pid' in record):
             pid = record['pid']
-            if (re.search('^\d{9}$', pid)):
+            if (re.search(r'^\d{9}$', pid)):
                 return True
         return False
 
