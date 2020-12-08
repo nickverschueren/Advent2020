@@ -27,8 +27,8 @@ def tryRun(program):
     while not ended:
         executed.add(processor.pointer)
         processor.executeCurrent()
-        ended = processor.pointer in executed or processor.pointer >= eof
-    if processor.pointer == eof:
+        ended = processor.pointer in executed or not processor.ready()
+    if processor.finished():
         return (True, processor.accumulator)
     return (False, 0)
 
