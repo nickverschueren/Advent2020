@@ -11,14 +11,6 @@ def readInput(filename):
 
     return instructions
 
-def part1(program):
-    executed = set()
-    processor = prc(program)
-    while not processor.pointer in executed:
-        executed.add(processor.pointer)
-        processor.executeCurrent()
-    return processor.accumulator
-
 def tryRun(program):
     eof = len(program)
     executed = set()
@@ -28,9 +20,10 @@ def tryRun(program):
         executed.add(processor.pointer)
         processor.executeCurrent()
         ended = processor.pointer in executed or not processor.ready()
-    if processor.finished():
-        return (True, processor.accumulator)
-    return (False, 0)
+    return (processor.finished(), processor.accumulator)
+
+def part1(program):
+    return tryRun(program)[1]
 
 def part2(program):
     for change in range(len(program)):
