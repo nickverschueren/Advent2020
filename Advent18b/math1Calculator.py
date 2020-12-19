@@ -7,9 +7,8 @@ from math1Parser import math1Parser
 class math1Calculator():
     def handleFile(self, expr):
         sum = 0
-        for child in expr.getChildren():
-            if not isinstance(child, tree.Tree.TerminalNode):
-                sum += self.handleExpression(child)
+        for child in expr.expression():
+            sum += self.handleExpression(child)
         return sum
 
     def handleExpression(self, expr):
