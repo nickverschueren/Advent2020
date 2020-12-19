@@ -1,0 +1,12 @@
+INTEGER=1
+LPAREN=2
+RPAREN=3
+PLUS=4
+TIMES=5
+DIV=6
+WS=7
+'('=2
+')'=3
+'+'=4
+'*'=5
+'/'=6
